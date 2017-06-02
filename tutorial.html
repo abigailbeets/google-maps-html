@@ -7,16 +7,24 @@
     <script type='text/javascript' src='./ajax_requests.js'></script>
   </head>
   <body>
-    <div id="map"></div>
+    <div class='container'>
+      <div class='options-box'>
+        <h1>Charlotte Points of Interest</h1>
+        <div>
+          <input id='show-listings' type='button' value='Show Listings' onclick=showListings()>
+          <input id='hide-listings' type='button' value='Hide Listings' onclick=hideListings()>
+        </div>
+      </div>
+      <div id='map'></div>
+    </div>
 
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCR0ckE2CRoe_NxDcm-efZWlEWq1lfJ0zU&v=3&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCR0ckE2CRoe_NxDcm-efZWlEWq1lfJ0zU&v=3&callback=initMap">
     </script>
 
     <script async defer>
       initMap()
-      createMarker()
-      createInfoWindow()
+      createMarkers()
     </script>
 
   </body>
