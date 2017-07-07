@@ -54,6 +54,23 @@ function createInfoWindow () {
   })
 }
 
+function createDrawingManager () {
+  let drawingManager = new google.maps.drawing.DrawingManager({
+    drawingMode: google.maps.drawing.OverlayType.POLYGON,
+    drawingControl: true,
+    drawingControlOptions: {
+      position: google.maps.ControlPosition.TOP_LEFT,
+      drawingModes: [
+        google.maps.drawing.OverlayType.POLYGON
+      ]
+    }
+  })
+
+  document.getElementById('toggle-drawing').addEventListener('click', function() {
+    toggleDrawing(drawingManager)
+  })
+}
+
 function createMarkers () {
   let largeInfoWindow = new google.maps.InfoWindow
 
@@ -143,6 +160,15 @@ function populateInfoWindow (marker, infoWindow) {
     }
     streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView)
     infoWindow.open(map, marker)
+  }
+}
+
+function toggleDrawing (drawingManager) {
+  if (drawingManager.map) {
+    drawingManager.setMap(null)
+  }
+  else {
+    drawingManager.setMap(map)
   }
 }
 

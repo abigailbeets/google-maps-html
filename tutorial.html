@@ -14,17 +14,23 @@
           <input id='show-listings' type='button' value='Show Listings' onclick=showListings()>
           <input id='hide-listings' type='button' value='Hide Listings' onclick=hideListings()>
         </div>
+        <hr />
+        <div>
+          <h6 id='toggle-drawing-text'>Draw a shape to choose your search area: </h6>
+          <input id='toggle-drawing' type='button' value='Drawing Tools'>
+        </div>
       </div>
       <div id='map'></div>
     </div>
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCR0ckE2CRoe_NxDcm-efZWlEWq1lfJ0zU&v=3&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualizations,drawing&key=AIzaSyCR0ckE2CRoe_NxDcm-efZWlEWq1lfJ0zU&v=3&callback=initMap">
     </script>
 
     <script async defer>
       initMap()
       createMarkers()
+      createDrawingManager()
     </script>
 
   </body>
